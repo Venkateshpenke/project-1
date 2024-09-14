@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia signup</title>
+    {% csrf_token %}
+</head>
+<body>
+    <div class="login_form" align="center">
+        <form action="{% url 'Login_user' %}" method="POST">
+            {% csrf_token %}
+            <label>User Name : </label> <input name="username" type="text" placeholder="Enter username">
+            <br>
+            <br>
+            <label>Password : </label> <input name="password" type="password" placeholder="Enter your password">
+            <br>
+            <br>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button><br>
+        </form>
+        <br>
+        <a href="">click Here To signup/ register</a>
+    </div>
+    
+</body>
+</html>

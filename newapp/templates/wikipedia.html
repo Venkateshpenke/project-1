@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia</title>
+    {% csrf_token %}
+</head>
+<body>
+    <div>
+    <a href="{% url 'create_articles' %}">Create Article</a>
+    {% for article in article_list %}
+    <h1>{{ article.title }}<br>{{ article.user.username }}</h1>
+    <p>{{ article.user.username }}</p>
+    <form action="{% url 'view_article' article.id %}" method="get">
+        {% csrf_token %}
+        <button type="submit">Click Here</button>
+    </form> 
+    {% empty %}
+    <h1>No articles found</h1>
+    {% endfor %}
+    </div>
+</body>
+</html>
